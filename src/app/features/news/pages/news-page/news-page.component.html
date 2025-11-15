@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Noticias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="isLoading" class="flex flex-col items-center justify-center h-full text-center p-5">
+    <ion-spinner name="crescent" class="mb-2"></ion-spinner>
+    <p class="text-gray-500">Cargando noticias...</p>
+  </div>
+
+  <div *ngIf="error" class="flex flex-col items-center justify-center h-full text-center p-5">
+    <ion-icon name="alert-circle-outline" class="text-red-500 text-5xl mb-2"></ion-icon>
+    <p class="text-gray-500">{{ error }}</p>
+    <ion-button (click)="loadNews()" expand="block" fill="outline" class="mt-4">Reintentar</ion-button>
+  </div>
+
+  <ion-list *ngIf="!isLoading && !error" class="space-y-4">
+    <app-news-card *ngFor="let item of newsItems" [newsItem]="item"></app-news-card>
+  </ion-list>
+</ion-content>

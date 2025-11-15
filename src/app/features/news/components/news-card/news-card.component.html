@@ -1,0 +1,9 @@
+<ion-card class="mb-4 cursor-pointer shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-transform duration-200" (click)="openLink()">
+  <ion-card-header class="pb-0">
+    <ion-card-title class="text-lg font-bold text-primary">{{ newsItem.title }}</ion-card-title>
+    <ion-card-subtitle class="text-sm text-gray-500 mt-1">{{ newsItem.published | date:'medium' }}</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content class="pt-2 text-sm text-gray-700">
+    <p>{{ newsItem.summary }}</p>
+  </ion-card-content>
+</ion-card>
